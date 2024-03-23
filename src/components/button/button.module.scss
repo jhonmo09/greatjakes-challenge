@@ -1,0 +1,61 @@
+@use '@/styles/vars.scss' as vars;
+@use '@/styles/media-queries.scss' as mediaQueries;
+
+.button {
+  border: 1px solid;
+  width: 100%;
+  appearance: none;
+  text-align: left;
+  font-size: 1.1875rem;
+  height: 70px;
+  border-radius: 35px;
+  border: 2px solid vars.$bg;
+  background-color: vars.$bg;
+  color: vars.$white;
+  display: flex;
+  padding: 0 25px;
+  line-height: 1.26em;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &--default {
+    justify-content: center;
+  }
+
+  &--icon {
+    gap: 16px;
+
+    img {
+      height: 22px;
+      width: auto;
+      display: block;
+    }
+
+    span {
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  &:disabled {
+    background-color: vars.$disabled;
+    border-color: vars.$disabled;
+  }
+
+  @include mediaQueries.break-xl {
+    font-size: 1rem;
+  }
+
+  @include mediaQueries.break-l {
+    font-size: 0.8rem;
+    height: 60px;
+    padding: 0 16px;
+  }
+}

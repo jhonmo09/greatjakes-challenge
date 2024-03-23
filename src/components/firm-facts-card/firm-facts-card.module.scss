@@ -1,0 +1,69 @@
+@use '@/styles/vars.scss' as vars;
+@use '@/styles/media-queries.scss' as mediaQueries;
+
+.firm-facts-card {
+  background-color: vars.$white;
+  padding: 50px 25px;
+  box-sizing: border-box;
+  display: flex;
+  cursor: pointer;
+  transition-property: color, background, box-shadow;
+  transition-duration: 0.4s;
+
+  &:first-child {
+    grid-row: 1 / 3;
+  }
+
+  &--default {
+    align-items: center;
+
+    &:hover {
+      background-color: vars.$green;
+
+      button:not(:disabled) {
+        background-color: transparent;
+        border-color: vars.$white;
+      }
+    }
+  }
+
+  &--border {
+    align-items: flex-start;
+
+    &:hover {
+      box-shadow: inset 0 0 0 15px vars.$green;
+
+      button:not(:disabled) {
+        background-color: vars.$green;
+        border-color: vars.$green;
+      }
+    }
+  }
+
+  @include mediaQueries.break-xl {
+    padding: 40px 20px;
+  }
+
+  @include mediaQueries.break-l {
+    padding: 30px 15px;
+
+    &--border {
+      &:hover {
+        box-shadow: inset 0 0 0 8px vars.$green;
+      }
+    }
+  }
+
+  @include mediaQueries.break-m {
+    &:first-child {
+      grid-row: auto;
+      grid-column: 1 / 4;
+      justify-content: center;
+
+      button {
+        width: auto;
+      }
+    }
+  }
+
+}
